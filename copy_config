@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+rm -rf nixos
 mkdir -p nixos
 cp -rf /etc/nixos/* nixos/
 rm -rf nixos/result
