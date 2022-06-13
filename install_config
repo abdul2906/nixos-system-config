@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+[ "$EUID" -ne 0 ] && echo "Please run as root." && exit 1
+
+cp -rf nixos/* /etc/nixos/
