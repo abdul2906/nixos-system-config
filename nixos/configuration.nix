@@ -1,13 +1,18 @@
 # Master configuration file
 { config, pkgs, ... }:
-
+let
+  # Define user in ./username.nix
+  # User should have corrsponding [user].nix file
+  user = import ./user/username.nix;
+in
 {
   imports = [ 
-    # User specific configuration
-    ./user/abdul.nix
+    # User specific options
+    ./user/${user}.nix
 
     # Hardware specific configuration
-    ./system/workstation/configuration.nix
+    ./system/workstation/gnome.nix
+    # ./system/workstation/bspwm.nix
     # ./system/laptop/configuration.nix # WIP
     # ./system/server/configuration.nix # WIP
   ];

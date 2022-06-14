@@ -2,6 +2,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../pkgs/neovim/pkg.nix
+  ];
+
   users.users.abdul = {
     isNormalUser = true;
     description = "abdul";
