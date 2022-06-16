@@ -42,5 +42,13 @@
 
   # Enable X11
   services.xserver.enable = true;
+
+  # Enable tablet support
+  hardware.opentabletdriver.enable = true;
+  hardware.opentabletdriver.daemon.enable = true;
+  hardware.opentabletdriver.blacklistedKernelModules = [
+    "hid-uclogic"
+    "wacom"
+  ];
 }
 

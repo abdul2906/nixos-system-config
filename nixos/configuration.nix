@@ -11,8 +11,8 @@ in
     ./user/${user}.nix
 
     # Hardware specific configuration
-    ./system/workstation/gnome.nix
-    # ./system/workstation/bspwm.nix
+    # ./system/workstation/gnome.nix
+    ./system/workstation/hyprland.nix
     # ./system/laptop/configuration.nix # WIP
     # ./system/server/configuration.nix # WIP
   ];
