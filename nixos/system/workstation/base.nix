@@ -41,7 +41,7 @@
   };
 
   # Enable X11
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable tablet support
   hardware.opentabletdriver.enable = true;

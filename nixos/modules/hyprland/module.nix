@@ -31,10 +31,12 @@ let
     hyprland = (import flake-compat {
       src = builtins.fetchTarball "https://github.com/vaxerski/Hyprland/archive/master.tar.gz";
     }).defaultNix;
+
+    user = import ../../user/username.nix;
+    home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
   environment.systemPackages = with pkgs; [
-    alacritty
     dbus-hyprland-environment
     configure-gtk
     wayland
@@ -44,7 +46,9 @@ in
     wl-clipboard
     bemenu
     wlr-randr
-    xorg.xhost
+    gnome.nautilus
+    swaybg
+    waybar
   ];
 
   services.dbus.enable = true;
@@ -57,11 +61,13 @@ in
 
   imports = [
     hyprland.nixosModules.default
+    (import "${home-manager}/nixos")
+    ../../pkgs/kitty/pkg.nix
   ];
 
   programs.hyprland.enable = true;
 
-  services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
   programs.xwayland.enable = true;
 
   environment.sessionVariables = rec {
@@ -70,11 +76,30 @@ in
     __GL_VRR_ALLOWED = "0";
     WLR_DRM_NO_ATOMIC = "1";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-#    QT_QPA_PLATFORM = "wayland";
-#    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    QT_QPA_PLATFORM = "wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     GDK_BACKEND = "wayland";
     WLR_NO_HARDWARE_CURSORS = "1";
     MOZ_ENABLE_WAYLAND = "1";
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "Hyprland";
+        user = "${user}";
+      };
+      default_session = initial_session;
+    };
+  };
+
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+  '';
+
+  home-manager.users.${user} = {
+    xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
   };
 }
 
