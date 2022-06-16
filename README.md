@@ -1,7 +1,7 @@
 ### Sysconf
 My modular nixos configuration and dotfiles.
 
-##### Workstation config screenshot
+##### Screenshot
 ![workstation screenshot](assets/workstation_screenshot_hyprland.png)
 
 #### Installation
