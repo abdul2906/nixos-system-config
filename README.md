@@ -2,7 +2,7 @@
 My modular nixos configuration and dotfiles.
 
 ##### Workstation config screenshot
-![workstation screenshot](assets/workstation_screenshot.png)
+![workstation screenshot](assets/workstation_screenshot_hyprland.png)
 
 #### Installation
 Configuration can be installed by running
