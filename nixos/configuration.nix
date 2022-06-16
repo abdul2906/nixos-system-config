@@ -20,6 +20,7 @@ in
   nixpkgs.overlays = [
     (import ./overlays/discord.nix)
     (import ./overlays/electron.nix)
+    (import ./overlays/waybar.nix)
   ];
 
   networking.hostName = "nixos";  
