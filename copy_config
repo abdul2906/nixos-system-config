@@ -5,4 +5,5 @@ rm -rf nixos/*
 
 # Copy config files from system
 cp -rf /etc/nixos/* nixos/
+rm -rf nixos/old
 
