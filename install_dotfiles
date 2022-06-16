@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Check if running as root
+[ "$EUID" -ne 0 ] && echo "Please run as root." && exit 1
+
+# Copy kitty config
+cp -f ~/.config/kitty/kitty.conf /etc/nixos/pkgs/kitty/kitty.conf
+
+# Copy neovim config
+cp -f ~/.config/nvim/init.vim /etc/nixos/pkgs/neovim/init.vim
+
+# Copy hyprland config
+cp -f ~/.config/hypr/hyprland.conf /etc/nixos/modules/hyprland/hyprland.conf

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-rm -rf nixos
-mkdir -p nixos
+# Delete current config files
+rm -rf nixos/*
+
+# Copy config files from system
 cp -rf /etc/nixos/* nixos/
-rm -rf nixos/result
+
