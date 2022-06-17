@@ -1,0 +1,41 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height" : "30",
+    "modules-left": [ "wlr/workspaces" ],
+    "modules-right": [ "tray", "memory", "cpu", "clock"],
+
+    // Module configuration
+    "wlr/workspaces": {
+        "sort-by-name": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV",
+            "5": "V",
+            "6": "VI",
+            "7": "VII",
+            "8": "VIII",
+            "9": "IX",
+            "10": "X"
+        }
+    },
+    "clock": {
+        "format-alt": "{:%H:%M:%S}"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "CPU: {usage}%"
+    },
+    "memory" : {
+        "interval": 1,
+        "format": "MEM: {used:0.2f}G/{total:0.2f}G"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    }
+}

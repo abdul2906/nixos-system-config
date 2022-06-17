@@ -48,7 +48,6 @@ in
     wlr-randr
     gnome.nautilus
     swaybg
-    waybar
   ];
 
   services.dbus.enable = true;
@@ -63,11 +62,10 @@ in
     hyprland.nixosModules.default
     (import "${home-manager}/nixos")
     ../../pkgs/kitty/pkg.nix
+    ../../pkgs/waybar/pkg.nix
   ];
 
   programs.hyprland.enable = true;
-
-  # services.xserver.displayManager.sddm.enable = true;
   programs.xwayland.enable = true;
 
   environment.sessionVariables = rec {
@@ -76,8 +74,11 @@ in
     __GL_VRR_ALLOWED = "0";
     WLR_DRM_NO_ATOMIC = "1";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+
+    # Will break SDDM if running X11
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
     GDK_BACKEND = "wayland";
     WLR_NO_HARDWARE_CURSORS = "1";
     MOZ_ENABLE_WAYLAND = "1";

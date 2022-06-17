@@ -1,0 +1,47 @@
+* {
+    border: none;
+    border-radius: 0px;
+
+    transition-duration: .5s;
+    transition-property: background-color;
+
+    color: #f7c8c6;
+}
+
+window#waybar {
+    background-color: rgba(12, 19, 18, 0.85);
+    background-color: rgba(17, 17, 17, 0.85);
+    border-bottom: 3px solid #922b3c;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    margin-bottom: 3px;
+    background-color: rgba(146, 43, 60, 0.7);
+/*
+   background: transparent;
+*/
+}
+
+#workspaces button:hover {
+    box-shadow: inset 0 1px #6B9089;
+    background: rgba(146, 43, 60, 0.7);
+}
+
+#cpu, #memory, #clock {
+    padding: 0 20px;
+    background-color: rgba(112, 22, 32, 0.85);
+    margin-bottom: 3px;
+}
+
+#clock {
+    background-color: rgba(163, 31, 46, 0.6);
+}
+
+#cpu {
+    background-color: rgba(140, 28, 41, 0.6);
+}
+
+#memory {
+    background-color: rgba(112, 22, 32, 0.6);
+}

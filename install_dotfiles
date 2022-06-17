@@ -3,11 +3,20 @@
 # Check if running as root
 [ "$EUID" -ne 0 ] && echo "Please run as root." && exit 1
 
+# Get username
+printf "Enter username > "
+read username
+home_dir="/home/${username}"
+[ ! -d "$home_dir" ] && echo "Invalid user." && exit 1
+
 # Copy kitty config
-cp -f ~/.config/kitty/kitty.conf /etc/nixos/pkgs/kitty/kitty.conf
+cp -f "$home_dir"/.config/kitty/kitty.conf /etc/nixos/pkgs/kitty/kitty.conf
 
 # Copy neovim config
-cp -f ~/.config/nvim/init.vim /etc/nixos/pkgs/neovim/init.vim
+cp -f "$home_dir"/.config/nvim/init.vim /etc/nixos/pkgs/neovim/init.vim
 
 # Copy hyprland config
-cp -f ~/.config/hypr/hyprland.conf /etc/nixos/modules/hyprland/hyprland.conf
+cp -f "$home_dir"/.config/hypr/hyprland.conf /etc/nixos/modules/hyprland/hyprland.conf
+
+# Copy waybar config
+cp -f "$home_dir"/.config/waybar/* /etc/nixos/pkgs/waybar/
