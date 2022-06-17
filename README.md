@@ -12,3 +12,7 @@ $ cd sysconf/
 # ./install_config
 # nixos-rebuild switch 
 ```
+
+#### Missing configuration:
+- [ ] GTK Themes
+- [ ] Firefox CSS
