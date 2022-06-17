@@ -16,3 +16,4 @@ $ cd sysconf/
 #### Missing configuration:
 - [ ] GTK Themes
 - [ ] Firefox CSS
+- [ ] Fish shell
