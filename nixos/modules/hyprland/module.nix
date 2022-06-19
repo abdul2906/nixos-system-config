@@ -63,6 +63,7 @@ in
     (import "${home-manager}/nixos")
     ../../pkgs/kitty/pkg.nix
     ../../pkgs/waybar/pkg.nix
+    ../../pkgs/mako/pkg.nix
   ];
 
   programs.hyprland.enable = true;

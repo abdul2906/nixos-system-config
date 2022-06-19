@@ -9,11 +9,11 @@ in
   ];
 
   home-manager.users.${user} = {
-    xdg.configFile."waybar/config".source = ./config;
-    xdg.configFile."waybar/style.css".source = ./style.css;
+    programs.mako.anchor = "top-right";
+    programs.mako.defaultTimeout = 5000;
   };
 
   environment.systemPackages = with pkgs; [
-    waybar
+    mako
   ];
 }

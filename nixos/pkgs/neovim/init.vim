@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'nvim-telescope/telescope.nvim'    
 Plug 'LnL7/vim-nix'
 Plug 'gruvbox-community/gruvbox'    
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Enable syntax highliting
