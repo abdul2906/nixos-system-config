@@ -15,9 +15,6 @@ in
     ./system/workstation/hyprland.nix
     # ./system/laptop/configuration.nix # WIP
     # ./system/server/configuration.nix # WIP
-
-    # Deps for debugging
-    ./deps.nix
   ];
 
   nixpkgs.overlays = [
