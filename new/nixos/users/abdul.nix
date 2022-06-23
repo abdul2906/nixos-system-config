@@ -4,6 +4,7 @@
   imports = [
     <home-manager/nixos>
     ../packages/neovim/pkg.nix
+    ../packages/kitty/pkg.nix
     ../sets/devel/CC++.nix
     ../sets/devel/git.nix
     ../sets/devel/java.nix
