@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+shopt -s extglob
+while getopts hcid: arg; do
+    case "$arg" in
+        h)
+            printf "
+usage: ./manager [-h,-c,-i] [-d USERNAME]
+
+Manages the system configuration files.
+
+arguments:
+  -d USERNAME       Copy dotfiles from user to system.
+  -h                Print this help dialog.
+  -c                Copy system configuration.
+  -i                Install configuration to system.
+            "
+            ;;
+        c)
+            read -p "This will overwrite nixos/*. Continue? [Yy]: " -n 1 -r
+            [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
+            ;;
+        i)
+            [ "$EUID" -ne 0 ] && printf "Root permissions are required." && exit 1
+            read -p "This will overwrite /etc/nixos. Continue? [Yy]: " -n 1 -r
+            [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
+
+            # Backup old config
+            mkdir -p /etc/nixos/old
+            dir=$(date +"%Y_%m_%d_%H%M%S")
+            mkdir -p /etc/nixos/old/"${dir}"
+            mv -f /etc/nixos/!(old) /etc/nixos/old/"${dir}"
+
+            # Copy configuration files
+            cp -rf nixos/* /etc/nixos
+            ;;
+        d)
+            [ "$EUID" -ne 0 ] && printf "Root permissions are required." && exit 1
+            read -p "This will overwrite dotfiles in /etc/nixos. Continue? [Yy]: " -n 1 -r
+            [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
+            user=$OPTARG
+            
+            home_dir="/home/${user}"
+            [ ! -d "$home_dir" ] && echo "Invalid username." && exit 1
+
+            # Copy dotfiles
+            cp -rf "$home_dir"/.config/nvim /etc/nixos/packages/neovim/nvim
+            cp -rf "$home_dir"/.config/hypr /etc/nixos/packages/hyprland/hypr
+            cp -rf "$home_dir"/.config/waybar /etc/nixos/packages/waybar/waybar
+            cp -rf "$home_dir"/.config/kitty /etc/nixos/packages/kitty/kitty
+            ;;
+        *)
+            ;;
+    esac
+done
+

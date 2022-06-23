@@ -1,6 +1,21 @@
 ## nixos-sysconf
 
-### Hierarchy
+Managed with ./manager.
+
+### manager
+```
+usage: manager [-h,-c,-i] [-d USERNAME]
+
+Manages the system configuration files.
+
+arguments:
+  -d USERNAME       Copy dotfiles from user to system.
+  -h                Print this help dialog.
+  -c                Copy system configuration.
+  -i                Install configuration to system.
+```
+
+### Directory tree
 ```
 /etc/nixos
 ├─configuration.nix         ; Master configuration
