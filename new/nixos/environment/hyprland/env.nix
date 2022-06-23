@@ -33,12 +33,13 @@ let
   }).defaultNix;
 
   user = import ../../username.nix;
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in 
 {
   imports = [
     hyprland.nixosModules.default
-    <home-manager/nixos>
     ../../sets/wayland/wlr.nix
+    (import "${home-manager}/nixos")
   ];
 
   services.dbus.enable = true;

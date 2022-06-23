@@ -2,10 +2,11 @@
 
 let
   user = import ../../username.nix;
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
   imports = [
-    <home-manager/nixos>
+    (import "${home-manager}/nixos")
   ];
 
   home-manager.users.${user} = {

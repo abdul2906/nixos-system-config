@@ -15,6 +15,7 @@
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
   networking.firewall.enable = false;
+  networking.hostName = "nixos";
 
   # Sound
   sound.enable = true;
@@ -32,5 +33,11 @@
   hardware.nvidia.modesetting.enable = true;
   services.xserver.videoDriver = [ "nvidia" ];
   hardware.opengl.enable = true;
+
+  # Set keymap for X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
 }
 

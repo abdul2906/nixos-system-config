@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
-
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in
 {
   imports = [
-    <home-manager/nixos>
+    (import "${home-manager}/nixos")
     ../packages/neovim/pkg.nix
     ../packages/kitty/pkg.nix
     ../sets/devel/CC++.nix

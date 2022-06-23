@@ -39,6 +39,14 @@ in {
     channel = "https://nixos.org/channels/nixos-unstable";
   };
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   # System version
   system.stateVersion = "22.05";
 } 

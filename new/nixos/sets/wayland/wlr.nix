@@ -11,6 +11,7 @@
     gnome3.adwaita-icon-theme
     gnome.nautilus
     firefox-wayland
+    glib
 
     # Utils
     grim
