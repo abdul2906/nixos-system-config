@@ -19,6 +19,10 @@ arguments:
         c)
             read -p "This will overwrite nixos/*. Continue? [Yy]: " -n 1 -r
             [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
+            rm -rf nixos/*
+
+            copy -rf /etc/nixos* nixos/
+            rm -rf nixos/old
             ;;
         i)
             [ "$EUID" -ne 0 ] && printf "Root permissions are required." && exit 1
