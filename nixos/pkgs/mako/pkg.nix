@@ -10,7 +10,7 @@ in
 
   home-manager.users.${user} = {
     programs.mako.anchor = "top-right";
-    programs.mako.defaultTimeout = 5000;
+    programs.mako.defaultTimeout = 4;
   };
 
   environment.systemPackages = with pkgs; [

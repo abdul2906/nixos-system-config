@@ -7,6 +7,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'LnL7/vim-nix'
 Plug 'gruvbox-community/gruvbox'    
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Cringe
+Plug 'andweeb/presence.nvim'
 call plug#end()
 
 " Enable syntax highliting

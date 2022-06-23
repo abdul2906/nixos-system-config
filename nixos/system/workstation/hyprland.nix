@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     firefox-wayland
     xorg.xhost
+    unzip
   ];
 }
 
