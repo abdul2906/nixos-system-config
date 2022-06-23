@@ -50,10 +50,10 @@ arguments:
             [ ! -d "$home_dir" ] && echo "Invalid username." && exit 1
 
             # Copy dotfiles
-            cp -rf "$home_dir"/.config/nvim /etc/nixos/packages/neovim/nvim
-            cp -rf "$home_dir"/.config/hypr /etc/nixos/packages/hyprland/hypr
-            cp -rf "$home_dir"/.config/waybar /etc/nixos/packages/waybar/waybar
-            cp -rf "$home_dir"/.config/kitty /etc/nixos/packages/kitty/kitty
+            cp -rf "$home_dir"/.config/nvim /etc/nixos/packages/neovim/
+            cp -rf "$home_dir"/.config/hypr /etc/nixos/packages/hyprland/
+            cp -rf "$home_dir"/.config/waybar /etc/nixos/packages/waybar/
+            cp -rf "$home_dir"/.config/kitty /etc/nixos/packages/kitty/
             ;;
         *)
             ;;

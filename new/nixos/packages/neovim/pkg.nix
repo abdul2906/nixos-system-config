@@ -20,8 +20,8 @@ in
   };
 
   # Set neovim as the manpager
-  environment.sessionVariables = rec {
-    MANPAGER = "/bin/sh -c \"col -b | nvim -c 'set ft=man nomod noma'\"";
-  };
+  #environment.sessionVariables = rec {
+  #  MANPAGER = "/bin/sh -c \"col -b | nvim -c 'set ft=man nomod noma'\"";
+  #};
 }
 

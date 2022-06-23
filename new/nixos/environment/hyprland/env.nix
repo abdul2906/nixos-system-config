@@ -41,6 +41,14 @@ in
     ../../sets/wayland/wlr.nix
   ];
 
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    gtkUsePortal = true;
+  };
+
   environment.systemPackages = with pkgs; [
     dbus-hyprland-environment
     configure-gtk
