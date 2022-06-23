@@ -32,17 +32,18 @@ let
     src = builtins.fetchTarball "https://github.com/vaxerski/Hyprland/archive/master.tar.gz";
   }).defaultNix;
 
-  user = import ../../user/username.nix;
+  user = import ../../username.nix;
 in 
 {
   imports = [
     hyprland.nixosModules.default
     <home-manager/nixos>
-    ../sets/wayland/wlr.nix
+    ../../sets/wayland/wlr.nix
   ];
 
   environment.systemPackages = with pkgs; [
     dbus-hyprland-environment
+    configure-gtk
   ];
 
   environment.sessionVariables = rec {
@@ -80,7 +81,7 @@ in
   programs.xwayland.enable = true;
 
   home-manager.users.${user} = {
-    xdg.configFile."hypr/".source = ../packages/hyprland/hypr;
+    xdg.configFile."hypr/".source = ../../packages/hyprland/hypr;
   };
 }
 

@@ -1,0 +1,9 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height" : "20",
+    "modules-left": [ "wlr/taskbar" ],
+    "wlr/taskar": {
+        "sort-by-name": true
+    }
+}

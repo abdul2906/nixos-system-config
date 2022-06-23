@@ -8,7 +8,7 @@ in
   ];
 
   home-manager.users.${user} = {
-    xdg.configFile."kitty".source = ./kitty
+    xdg.configFile."kitty".source = ./kitty;
   };
 
   environment.systemPackages = with pkgs; [

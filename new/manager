@@ -20,8 +20,9 @@ arguments:
             read -p "This will overwrite nixos/*. Continue? [Yy]: " -n 1 -r
             [[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
             rm -rf nixos/*
+            mkdir -p nixos/
 
-            copy -rf /etc/nixos* nixos/
+            cp -rf /etc/nixos/* nixos/
             rm -rf nixos/old
             ;;
         i)
@@ -37,6 +38,7 @@ arguments:
 
             # Copy configuration files
             cp -rf nixos/* /etc/nixos
+            nixos-generate-config
             ;;
         d)
             [ "$EUID" -ne 0 ] && printf "Root permissions are required." && exit 1

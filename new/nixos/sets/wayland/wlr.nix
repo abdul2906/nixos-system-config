@@ -10,7 +10,6 @@
     wayland
     gnome3.adwaita-icon-theme
     gnome.nautilus
-    configure-gtk
 
     # Utils
     grim

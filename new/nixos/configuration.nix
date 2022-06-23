@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let 
-  user = import ./username.nix
+  user = import ./username.nix;
 in {
   imports = [
     # --User configuration--

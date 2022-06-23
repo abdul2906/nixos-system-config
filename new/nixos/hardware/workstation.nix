@@ -3,7 +3,8 @@
 {
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.initrd.enable = false;
+  # Why no workey
+  # boot.initrd.enable = false;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -17,8 +18,8 @@
 
   # Sound
   sound.enable = true;
-  hardware.pulseuadio.enable = false;
-  security.rtkit.enable = truel
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -28,7 +29,7 @@
   };
 
   # GPU
-  hardware.nvidia.modsetting.enable = true;
+  hardware.nvidia.modesetting.enable = true;
   services.xserver.videoDriver = [ "nvidia" ];
   hardware.opengl.enable = true;
 }

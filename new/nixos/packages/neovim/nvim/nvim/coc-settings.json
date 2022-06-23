@@ -1,0 +1,4 @@
+{
+    "clangd.path": "clangd",
+    "clangd.fallbackFlags": ["-xc", "-fblocks", "-D_POSIX_C_SOURCE=200809L"]
+}
