@@ -77,4 +77,8 @@ in
 
   # System version
   system.stateVersion = "22.05";
+
+  environment.systemPackages = with pkgs; [
+    nix-diff
+  ];
 }
