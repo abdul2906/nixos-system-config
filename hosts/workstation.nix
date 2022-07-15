@@ -69,6 +69,9 @@ in
   hardware.opengl.enable = true;
   hardware.nvidia.modesetting.enable = true;
 
+  # gtk stuff
+  programs.dconf.enable = true;
+
   system.stateVersion = "22.05"; # Do not edit
 }
 
