@@ -5,14 +5,15 @@
 { config, pkgs, ... }:
 
 let 
-  profile = import ../current/profile.nix;
+#  profile = import ../current/profile.nix;
   username = import ../current/username.nix;
 in
 {
   imports =
     [
       ../hardware-configuration.nix
-      ../profile/${profile}/env.nix
+#      ../profile/${profile}/env.nix
+      ../profile/kde/env.nix
       ../user/${username}.nix
 
       ../sets/common.nix

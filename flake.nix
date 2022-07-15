@@ -22,6 +22,16 @@
           inherit system;
           modules = [ 
             ./hosts/workstation.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = false;
+              home-manager.users.t = {
+                imports = [
+                  ./packages/neovim/pkg.nix
+                ];
+                home.stateVersion = "22.05";
+              };
+            }
           ];
         };
       };

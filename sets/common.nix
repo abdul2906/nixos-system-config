@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../packages/neovim/pkg.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -11,4 +10,11 @@
     unzip
     tar
   ];
+
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    viAlias = true;
+    defaultEditor = true;
+  };
 }
