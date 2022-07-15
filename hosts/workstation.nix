@@ -5,14 +5,14 @@
 { config, pkgs, ... }:
 
 let 
-  environment = ../current/environment.nix;
-  username = ../current/username.nix;
+  profile = import ../current/profile.nix;
+  username = import ../current/username.nix;
 in
 {
   imports =
     [
       ../hardware-configuration.nix
-      ../environment/${environment}/env.nix
+      ../profile/${profile}/env.nix
       ../user/${username}.nix
 
       ../sets/common.nix
