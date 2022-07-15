@@ -8,6 +8,7 @@
     firefox
     wget
     unzip
+    noisetorch
   ];
 
   programs.neovim = {
