@@ -12,7 +12,7 @@ in
   imports =
     [
       ../hardware-configuration.nix
-      ../environment/${environment}.nix
+      ../environment/${environment}/env.nix
       ../user/${username}.nix
 
       ../sets/common.nix
@@ -47,9 +47,6 @@ in
 
   # X keymap
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = {
-    "eurosign:e";
-  }
 
   # Enable printing
   services.printing.enable = true;
