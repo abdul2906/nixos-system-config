@@ -8,7 +8,6 @@
     firefox
     wget
     unzip
-    tar
   ];
 
   programs.neovim = {
