@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, ...};
+{ config, pkgs, home-manager, ...}:
 
 let
   user = import ../../current/username.nix;
