@@ -6,4 +6,6 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  services.hardware.xow.enable = true;
 }
